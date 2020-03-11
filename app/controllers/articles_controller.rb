@@ -6,6 +6,7 @@ class ArticlesController < ApplicationController
 
     def create 
         @article = Article.new(articles_params)
+        @article.user_id = User.current_user
         @article.save
 
         if @article.save
