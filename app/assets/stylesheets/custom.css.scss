@@ -100,6 +100,11 @@ footer{
     margin-top: 15px;
 }
 
+.listing{
+    list-style: none;
+    padding: 0;
+}
+
 
 // "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
 @import "bootstrap-sprockets";
