@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
   before_action :set_user, only: [:edit, :update, :show]
+  before_action :current_user_only, only: [:edit, :update]
   def new
     @user = User.new
   end
@@ -49,5 +50,12 @@ class UsersController < ApplicationController
 
   def set_user
     @user = User.find_by(id: params[:id])
+  end
+
+  def current_user_only
+      if current_user != @user 
+        flash[:danger] = "You can only edit your profile"
+        redirect_to user_path(@user)
+    end
   end
 end

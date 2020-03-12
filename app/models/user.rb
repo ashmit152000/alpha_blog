@@ -16,10 +16,7 @@ validates :email, presence: true, length: {maximum: 105}, uniqueness: {case_sens
 
 
 
-def self.current_user
-	user = 3
-	return user
-end
+
 
 has_secure_password
 
