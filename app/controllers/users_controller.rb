@@ -1,7 +1,11 @@
 class UsersController < ApplicationController
+
+  before_action :set_user, only: [:edit, :update, :show]
   def new
     @user = User.new
   end
+
+
 
   def create
     @user = User.new(users_params)
@@ -15,15 +19,17 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find_by(id: params[:id])
+    
+    @made_articles = @user.articles.paginate(page: params[:page], per_page: 5)
+
   end
 
   def edit
-    @user = User.find_by(id: params[:id])
+    
   end
 
   def update
-    @user = User.find_by(id: params[:id])
+    
     if @user.update(users_params)
          flash[:success] = "Your profile was successfully updated"
         redirect_to user_path(@user)
@@ -33,11 +39,15 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.all
+    @users = User.paginate(page: params[:page], per_page: 5)
   end
 
   private 
   def users_params
     params.require(:user).permit(:username,:email,:password)
+  end
+
+  def set_user
+    @user = User.find_by(id: params[:id])
   end
 end

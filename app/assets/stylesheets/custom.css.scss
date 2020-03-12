@@ -1,4 +1,5 @@
 $navbar-default-bg: #000000;
+$basic-color: #337ab7;
 
 #logo{
     float: left;
@@ -103,6 +104,47 @@ footer{
 .listing{
     list-style: none;
     padding: 0;
+}
+
+.pagination{
+    
+
+    & > a {
+        margin-left: 5px;
+    }
+
+    & > em {
+        margin-left: 5px;
+    }
+
+    & > span {
+        margin-left: 5px;
+    }
+
+    & > a:not(.next_page):not(.previous_page)  {
+        text-decoration: none;
+        color: black;
+        border: 1px solid black;
+        border-radius: 50%;
+        padding: 5px;
+
+    }
+
+    & a.next_page {
+        color: black;
+    }
+
+    & a.previous_page {
+        color: black;
+    }
+}
+
+.current{
+        color: $basic-color;
+}
+
+.page_number {
+    text-transform: uppercase;
 }
 
 
