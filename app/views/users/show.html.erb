@@ -22,7 +22,7 @@
 </div>
 
 	<% if @user.articles.any? %>
-		<%= render 'articles/list', obj: @made_articles%>
+		<%= render 'articles/list', obj: @made_articles %>
 	<% end %>
 	<% if params[:page] %>
 		<h4 align="center" class="page_number">This is page <%= params[:page] %></h4>
